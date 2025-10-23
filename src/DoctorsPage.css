@@ -1,0 +1,59 @@
+.main-container {
+  text-align: left;
+  padding: 20px;
+  background-image: url("../back5.jpg");
+  background-size: cover;
+  height: 87vh;
+  position:static;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 10px;
+  border-color: darkblue;
+}
+
+.doctor-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.doctor-card:hover {
+  transform: scale(1.03);
+}
+
+.doctor-card h4 {
+  margin-bottom: 10px;
+  color: black;
+}
+
+.doctor-card p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.doctor-card button {
+  margin-top: 8px;
+  background-color:blue;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  width: 30%;
+}
+
+.doctor-card button:hover {
+  background-color: #c0392b;
+}

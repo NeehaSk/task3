@@ -1,0 +1,31 @@
+.corner-image {
+  position: fixed;
+  
+  height: px !important;
+  z-index: 10;
+}
+
+.top-left {
+  top: 150px !important;
+  left: 110px !important;
+  width: 200px !important;
+  
+}
+
+.bottom-left {
+  bottom: 90px !important;
+  left: 130px !important;
+  width: 200px !important;
+}
+
+.top-right {
+  top: 150px !important;
+  right: 140px !important;
+  width: 200px !important;
+}
+
+.bottom-right {
+  bottom: 90px !important;
+  right: 130px !important;
+  width: 220px !important;
+}
