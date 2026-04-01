@@ -1,84 +1,91 @@
-.register-background {
-  background-image: url("../back1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+.register-wrapper {
+  background: white;
+  height: calc(100vh - 56px); /* Fix height to exactly fill the remaining screen */
   width: 100%;
-  background-position: center;
-  position: fixed;
-  margin-top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevent vertical scroll */
+  padding: 0;
 }
 
 .register-container {
+  max-width: 1000px; /* Reduced width as requested */
+  height: 85%; /* Scaled down height to ensure no scroll */
   display: flex;
-  flex-wrap: wrap;
-  width: 900px;
-  margin: 40px auto;
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08) !important;
+  border: 1px solid #f0f0f0 !important;
 }
 
-.register-img {
-  flex: 1;
-  background-image: url("../reg2.jpg");
-  background-size: cover;
-  background-position: center;
-  min-height: 400px;
+.image-section {
+  flex: 1.1; /* Adjusted ratio for better image presentation in narrower container */
+  height: 100%;
+  overflow: hidden;
+  background-color: #fcfcfc;
 }
 
-.register-form {
-  flex: 1;
-  padding: 40px;
-}
-
-.register-form h1 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: black !important;
-  font-weight: 600;
-}
-
-.register-form-group {
-  margin-bottom: 15px;
-}
-
-.register-form-group label {
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important; /* Kept the 'full' image instruction */
   display: block;
-  margin-bottom: 5px;
-  color: black !important;
 }
 
-.register-form-group input {
-  width: 75% !important;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+/* Form Styling - Vertical Center with No Scrol */
+.form-content-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem !important; /* Managed padding for better fit */
+  height: 100%;
+}
+
+.form-header h1 {
+  color: #0d47a1;
+  font-size: 1.95rem; /* Slightly smaller for more compact layout */
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 2px;
+}
+
+.form-control, .form-select {
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
 }
 
 .register-btn {
-  width: 80% !important;
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
-  font-weight: 500;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #0d47a1 !important;
+  border: none !important;
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-weight: 600;
 }
 
 .register-btn:hover {
-  background-color: white !important;
-  color: #004a99;
-  border: 2px solid darkblue !important;
+  background-color: #002171 !important;
+  transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-  .register-img {
-    display: none;
+/* Mobile Tweak - adjust sizing */
+@media (max-width: 991px) {
+  .register-wrapper {
+    height: auto;
+    overflow-y: auto;
+    padding: 2rem 0;
   }
-
-  .register-form {
-    width: 100%;
+  .register-container {
+    flex-direction: column;
+    height: auto;
+    max-width: 92%;
   }
 }

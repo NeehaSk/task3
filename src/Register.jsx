@@ -20,12 +20,9 @@ export default function Register() {
       specialization,
     };
 
-    console.log("Doctor data:", newDoctor);
-
     axios
       .post("https://doc-back.onrender.com/doctors", newDoctor)
       .then((res) => {
-        console.log("Response:", res);
         alert("Doctor registered successfully!");
         setName("");
         setAge("");
@@ -40,18 +37,30 @@ export default function Register() {
   };
 
   return (
-    <div className="register-background">
-      <div className="register-container">
-        <div className="register-img"></div>
+    <div className="register-wrapper">
+      <div className="register-container shadow-lg border-0 rounded-4 overflow-hidden">
+        {/* FULL Image Section - Optimized for smaller container */}
+        <div className="image-section d-none d-lg-block">
+          <img 
+              src="/reg_doctor_v2.jpg" 
+              alt="Medical Team Illustration" 
+              className="w-100 h-100 object-fit-contain" 
+          />
+        </div>
 
-        <div className="register-form">
-          <h1>Doctor Registration Form</h1>
+        {/* Clean, Non-Scrollable Form Section */}
+        <div className="form-content-side bg-white px-4 px-md-5">
+          <div className="text-center mb-4">
+            <h1 className="fw-bold text-dark border-bottom-0">Doctor Registration</h1>
+            <p className="text-muted small mb-0">Join our clinical network</p>
+          </div>
 
-          <form onSubmit={handleSubmit}>
-            <div className="register-form-group">
-              <label>Name </label>
+          <form onSubmit={handleSubmit} className="px-lg-1">
+            <div className="mb-3">
+              <label className="form-label">Full Name</label>
               <input
                 type="text"
+                className="form-control"
                 placeholder="Enter name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -59,51 +68,64 @@ export default function Register() {
               />
             </div>
 
-            <div className="register-form-group">
-              <label>Age</label>
-              <input
-                type="number"
-                placeholder="Enter age"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                required
-              />
+            <div className="row g-2 mb-3">
+              <div className="col-md-6 col-sm-6">
+                <label className="form-label">Age</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="Age"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="col-md-6 col-sm-6">
+                <label className="form-label">Gender</label>
+                <select 
+                   className="form-select" 
+                   value={gender} 
+                   onChange={(e) => setGender(e.target.value)} 
+                   required
+                >
+                   <option value="">Select</option>
+                   <option value="Male">Male</option>
+                   <option value="Female">Female</option>
+                   <option value="Other">Other</option>
+                </select>
+              </div>
             </div>
 
-            <div className="register-form-group">
-              <label>Gender</label>
-              <input
-                type="text"
-                placeholder="Enter gender"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-                required
-              />
+            <div className="row g-2 mb-3">
+              <div className="col-md-6 col-sm-6">
+                <label className="form-label">Salary</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="e.g. 85000"
+                  value={salary}
+                  onChange={(e) => setSalary(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="col-md-6 col-sm-6">
+                <label className="form-label">Specialization</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="e.g. Pediatrics"
+                  value={specialization}
+                  onChange={(e) => setSpecialization(e.target.value)}
+                  required
+                />
+              </div>
             </div>
 
-            <div className="register-form-group">
-              <label>Salary</label>
-              <input
-                type="number"
-                placeholder="Enter salary"
-                value={salary}
-                onChange={(e) => setSalary(e.target.value)}
-                required
-              />
+            <div className="mt-4 pt-1">
+              <button type="submit" className="btn btn-primary w-100 py-2 fs-6 fw-bold register-btn">
+                Submit and Save Record
+              </button>
             </div>
-
-            <div className="register-form-group">
-              <label>Specialization</label>
-              <input
-                type="text"
-                placeholder="Enter specialization"
-                value={specialization}
-                onChange={(e) => setSpecialization(e.target.value)}
-                required
-              />
-            </div>
-
-            <button type="submit" className="register-btn">Submit</button>
           </form>
         </div>
       </div>

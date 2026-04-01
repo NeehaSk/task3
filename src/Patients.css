@@ -1,49 +1,71 @@
-.patients-container {
-  display: flex;
-  
-  gap: 20px;
-  padding: 150px 30px;
-  justify-content: center;
- 
-  background-position: center;
-  
-  min-height: 27vh;
+.patients-list-wrapper {
+  min-height: calc(100vh - 56px);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background-color: #ffffff;
 }
-.background{
-   background-image: url('../back8.jpg');
+
+/* Reduced White Overlay - Making the background image 'back8.jpg' more visible */
+.patients-list-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/back8.jpg");
   background-size: cover;
-  height: 90vh;
-
-}
-
-.patient-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  width: 200px;
-  padding: 6px 15px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-  text-align: center;
-}
-
-.patient-card:hover {
-  transform: translateY(-6px);
-}
-
-.patient-card p {
-  margin: 5px 0;
-  font-size: 1rem;
-  color: black;
-}
-.corner-image {
-  position: fixed;
-  width: 120px;
-  height: auto;
-  z-index: 10;
+  background-position: center;
+  opacity: 0.45; /* Increased opacity from 0.12 to make 'white overlay' less dominant */
   pointer-events: none;
+  z-index: 0;
 }
 
-.bottom-left {
-  bottom: 40px;
-  left: 60px;
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+/* NORMAL Patient Card - Simple clinic-standard style */
+.patient-info-card {
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd !important;
+}
+
+.patient-info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15) !important;
+}
+
+.patient-info-card h5 {
+  color: #0d47a1;
+  font-size: 1.15rem;
+}
+
+.diagnosis-section {
+  color: #333;
+}
+
+.diagnosis-section strong {
+  color: #0d47a1;
+}
+
+.text-danger-emphasis {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* Row separation */
+.border-end {
+  border-right: 1px solid #ddd !important;
+}
+
+/* Responsive Tweak */
+@media (max-width: 576px) {
+  .display-5 {
+    font-size: 2rem;
+  }
 }

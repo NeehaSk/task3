@@ -1,59 +1,64 @@
-.main-container {
-  text-align: left;
-  padding: 20px;
-  background-image: url("../back5.jpg");
+.doctors-list-wrapper {
+  min-height: calc(100vh - 56px);
+  position: relative;
+  overflow-x: hidden;
+  padding: 0;
+  background-color: #ffffff; /* Clean white base */
+}
+
+/* Reduced White Overlay - Making the background image 'back5.jpg' more visible */
+.doctors-list-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/back5.jpg");
   background-size: cover;
-  height: 87vh;
-  position:static;
+  background-position: center;
+  opacity: 0.5; /* Increased opacity from 0.15 to make 'white overlay' less dominant */
+  pointer-events: none;
+  z-index: 0;
 }
 
-h2 {
-  margin-bottom: 20px;
+.container {
+  position: relative;
+  z-index: 10;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  padding: 10px;
-  border-color: darkblue;
-}
-
-.doctor-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+/* NORMAL Card Style - Reverting back to simple clinic standard */
+.doctor-profile-card {
   border-radius: 10px;
-  padding: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+  background: white;
+  border: 1px solid #ddd !important;
+  transition: transform 0.2s;
 }
 
-.doctor-card:hover {
-  transform: scale(1.03);
+.doctor-profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
 }
 
-.doctor-card h4 {
-  margin-bottom: 10px;
-  color: black;
+.card-title {
+  color: #0d47a1 !important;
+  font-size: 1.25rem;
 }
 
-.doctor-card p {
-  margin: 4px 0;
-  font-size: 14px;
+.doctor-details p {
+  color: #333;
+  margin-bottom: 5px;
 }
 
-.doctor-card button {
-  margin-top: 8px;
-  background-color:blue;
-  color: white;
+.btn-danger {
+  background-color: #dc3545;
   border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 13px;
-  width: 30%;
+  font-weight: 500;
 }
 
-.doctor-card button:hover {
-  background-color: #c0392b;
+/* Responsive Tweak */
+@media (max-width: 576px) {
+  .display-5 {
+    font-size: 2rem;
+  }
 }

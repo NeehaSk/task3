@@ -26,12 +26,9 @@ export default function PatientRegister() {
       },
     };
 
-    console.log("Patient Data:", newPatient);
-
     axios
       .post("https://doc-back.onrender.com/patients", newPatient)
       .then((res) => {
-        console.log("Response:", res);
         alert("Patient registered successfully!");
         setName("");
         setAge("");
@@ -48,95 +45,119 @@ export default function PatientRegister() {
   };
 
   return (
-    <div className="login-background">
-      <div className="login-container">
-        <div className="login-img"></div>
+    <div className="login-wrapper">
+      <div className="container py-2 py-md-4 h-100 d-flex align-items-center justify-content-center">
+        <div className="row g-0 login-container shadow-lg border-0 rounded-4 overflow-hidden w-100">
+          {/* Left Side Image Section - Corrected path for public folder asset */}
+          <div className="col-lg-6 p-0 d-none d-lg-block image-side-container">
+            <img 
+               src="/patient2.jpg" 
+               alt="Patient Intake Consultation" 
+               className="w-100 h-100 object-fit-contain p-4"
+            />
+          </div>
 
-        <div className="login-form">
-          <h1 align="center">Patient Portal</h1>
-
-          <form onSubmit={handleSubmit}>
-            <div className="login-form-group">
-              <label>Name</label>
-              <input
-                type="text"
-                placeholder="Enter name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
+          {/* Form Side Section - Clean and Responsive */}
+          <div className="col-lg-6 bg-white d-flex flex-column justify-content-center p-4 p-md-5">
+            <div className="text-center mb-4">
+              <h1 className="fw-bold text-dark display-6 mb-1">Patient Portal</h1>
+              <p className="text-muted small">Clinical Registration & Intake</p>
             </div>
 
-            <div className="login-form-group">
-              <label>Age</label>
-              <input
-                type="number"
-                placeholder="Enter age"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                required
-              />
-            </div>
+            <form onSubmit={handleSubmit} className="row g-3">
+              <div className="col-12">
+                <label className="form-label fw-bold">Full Name</label>
+                <input
+                  type="text"
+                  className="form-control form-control-md"
+                  placeholder="Enter patient name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
 
-            <div className="login-form-group">
-              <label>Gender</label>
-              <input
-                type="text"
-                placeholder="Enter gender"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-                required
-              />
-            </div>
+              <div className="col-6 col-md-4">
+                <label className="form-label fw-bold">Age</label>
+                <input
+                  type="number"
+                  className="form-control form-control-md"
+                  placeholder="Age"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                  required
+                />
+              </div>
 
-            <div className="login-form-group">
-              <label>Weight (kg)</label>
-              <input
-                type="number"
-                placeholder="Enter weight"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                required
-              />
-            </div>
+              <div className="col-6 col-md-4">
+                <label className="form-label fw-bold">Gender</label>
+                <input
+                  type="text"
+                  className="form-control form-control-md"
+                  placeholder="Gender"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                  required
+                />
+              </div>
 
-            <div className="login-form-group">
-              <label>Disease</label>
-              <input
-                type="text"
-                placeholder="Enter disease"
-                value={disease}
-                onChange={(e) => setDisease(e.target.value)}
-                required
-              />
-            </div>
+              <div className="col-12 col-md-4">
+                <label className="form-label fw-bold">Weight (kg)</label>
+                <input
+                  type="number"
+                  className="form-control form-control-md"
+                  placeholder="Weight"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  required
+                />
+              </div>
 
-            <h3>Doctor Information</h3>
+              <div className="col-12">
+                <label className="form-label fw-bold">Disease/Symptoms</label>
+                <input
+                  type="text"
+                  className="form-control form-control-md"
+                  placeholder="Primary diagnosis or symptoms"
+                  value={disease}
+                  onChange={(e) => setDisease(e.target.value)}
+                  required
+                />
+              </div>
 
-            <div className="login-form-group">
-              <label>Doctor Name</label>
-              <input
-                type="text"
-                placeholder="Enter doctor's name"
-                value={doctorName}
-                onChange={(e) => setDoctorName(e.target.value)}
-                required
-              />
-            </div>
+              <div className="col-12 mt-3 pt-3 border-top">
+                <p className="text-primary fw-bold small mb-2 text-uppercase ls-1">Recommended Specialist</p>
+                <div className="row g-2">
+                  <div className="col-md-6">
+                    <input
+                      type="text"
+                      className="form-control form-control-sm"
+                      placeholder="Doctor name"
+                      value={doctorName}
+                      onChange={(e) => setDoctorName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <input
+                      type="text"
+                      className="form-control form-control-sm"
+                      placeholder="Specialization"
+                      value={doctorSpecialization}
+                      onChange={(e) => setDoctorSpecialization(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
 
-            <div className="login-form-group">
-              <label>Doctor Specialization</label>
-              <input
-                type="text"
-                placeholder="Enter doctor's specialization"
-                value={doctorSpecialization}
-                onChange={(e) => setDoctorSpecialization(e.target.value)}
-                required
-              />
-            </div>
-
-            <button type="submit" className="login-btn">Submit</button>
-          </form>
+              <div className="col-12 mt-4 pt-1">
+                <button type="submit" className="btn btn-primary btn-lg w-100 fw-bold shadow-sm login-submit-btn">
+                   Register Patient Record
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
